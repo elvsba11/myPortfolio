@@ -1,0 +1,26 @@
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+
+:root {
+  --bg: #111;
+  --card: #181818;
+  --border: #2a2a2a;
+  --orange: #ff6640;
+  --yellow: #ffc94d;
+  --text: #f0f0f0;
+  --muted: #777;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.6;
+}
+
+html {
+  scroll-behavior: smooth;
+}
