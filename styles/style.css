@@ -2,18 +2,20 @@
 nav {
   padding: 1.4rem 2rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
   background: rgba(17,17,17,0.92);
   backdrop-filter: blur(10px);
-  z-index: 99;
+  z-index: 98;
 }
 .logo { 
   font-weight: 600; 
-  font-size: 0.95rem; 
+  font-size: 0.95rem;
+  
+  margin-right: auto;
 }
 .logo span { 
   color: var(--orange); 
@@ -28,6 +30,8 @@ nav a {
   text-decoration: none;
   font-size: 0.85rem;
   transition: color 0.2s;
+  padding: 0 20px;
+  transition: 0.5s ease-out;
 }
 nav a:hover { 
   color: var(--text); 
@@ -50,6 +54,11 @@ nav a:hover {
   border-radius: 50%;
   animation: pulse 2s infinite;
 }
+
+#overlay {
+  display: none;
+}
+
 @keyframes pulse {
   0%,100% { 
     opacity:1; 
@@ -59,6 +68,14 @@ nav a:hover {
     opacity:0.4; 
     transform:scale(1.4); 
   }
+}
+
+#ham-active {
+  display: none;
+}
+
+.open-ham-menu, .close-ham-menu {
+  display: none;
 }
 
 /* HERO */
@@ -419,7 +436,56 @@ footer {
   transform: translateY(0); 
 }
 
+/* Media */
+/* Navbar Menu */
 
+@media (max-width: 856px) {
+  .nav-right {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 99;
 
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 100vh;
+
+    background-color: rgb(0, 0, 0);
+    box-shadow: -5px 0 10px rgba(255, 255, 255, 0.123);
+    transition: .5s ease-out;
+  }
+
+  nav a {
+    width: 100%;
+  }
+
+  .close-ham-menu, .open-ham-menu {
+    display: block;
+    /* padding: 20px; */
+  }
+
+  .close-ham-menu {
+    padding: 20px;
+  }
+
+  .available {
+    margin: 0 auto;
+  }
+
+  #ham-active:checked ~ .nav-right,#overlay {
+    display: flex;
+    
+  }
+
+  #ham-active:checked ~ #overlay {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+}
 
 
